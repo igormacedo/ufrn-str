@@ -16,7 +16,7 @@
 
 
 #include <cstdlib>   //qsort
-#include  <time.h>   // clock(),time()
+#include <time.h>   // clock(),time()
 #include <stdio.h>   // printf()
 #include <stdlib.h>  // exit()
 
@@ -71,11 +71,25 @@ int main ()
 	//Tamanho do vetor
 	int n = 1000;
 	//Criar vetor com elementos aleatorios[0,100000] 
-	criarVetor(n,23);
-	//Ordenar utilizando quickSort
-	qsort (vetorQuickSort, n, sizeof(int), compare_ints);
-	//Ordenar utilizando bubleSort
-	bubbleSort(vetorBubbleSort,n);
+	for (int i = 20; i < 100000; i+=2000)
+	{
+		printf("Vetor tamanho: %d\n\n", i);
+		criarVetor(i,23);
+		//Ordenar utilizando quickSort
+		clock_t clock_1, clock_2;
+		clock_1 = clock();
+		qsort (vetorQuickSort, i, sizeof(int), compare_ints);
+		clock_2 = clock();
+		printf("Tempo de execução QuickSort: %f \n", (double)(clock_2-clock_1)/(double)CLOCKS_PER_SEC);
+		
+
+		//Ordenar utilizando bubleSort
+		clock_1 = clock();
+		bubbleSort(vetorBubbleSort,i);
+		clock_2 = clock();
+		printf("Tempo de execução BubbleSort: %f \n", (double)(clock_2-clock_1)/(double)CLOCKS_PER_SEC);
+	}
+
 	exit(0);
 }
 
