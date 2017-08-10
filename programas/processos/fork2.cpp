@@ -36,7 +36,7 @@ int main ()
       }
     break;
     default:      // excução do processo Pai    
-      sleep(3);
+      sleep(6);
       printf(" \nEu sou o processo Pai número de PID =  %d\n", getpid());
       printf(" Sou o Prcesso PAI. Acabei de ter um Filho. O PID dele é PID =  %d\n", pid);
       printf(" Fim do Processo Pai\n");
