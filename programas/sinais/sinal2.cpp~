@@ -14,11 +14,11 @@
 void ouch (int sig)
 {
 	static int i = 0;
+	i++;
 	if(i< 2)
 	{
 		printf("Ah, Ah, Ah-  Eu não morro com : %d \n", sig);
 		printf("Pelo menos, da primeira vez. Tente de novo..\n\n\n");
-		i++;
 	}
 	else
 	{

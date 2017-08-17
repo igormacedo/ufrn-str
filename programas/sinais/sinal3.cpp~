@@ -29,7 +29,7 @@ int main()
     if(tempo_de_sono >= 10 )
       {
         printf("Já se passaram 10 segundos. Agora vou me matar.\n");
-	kill(1,SIGKILL); // Processo mandando um sinal si mesmo
+	kill(getppid(),SIGKILL); // Processo mandando um sinal si mesmo
       
       }
   }
