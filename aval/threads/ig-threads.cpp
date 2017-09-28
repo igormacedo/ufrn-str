@@ -36,7 +36,7 @@ int main(int argc, char *argv[]){
   //Vetor de threads
   pthread_t vetorThreads[NUM_THREADS];
   pthread_attr_t attr;
-  //pthread_attr_init(&attr);
+  pthread_attr_init(&attr);
   pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &cpus);
 
   //Status de criação
