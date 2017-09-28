@@ -73,7 +73,7 @@ void *thread_function(void *arg) {
     sleep(1);
     pthread_mutex_lock(&work_mutex);
     while(strncmp("fim", work_area, 3) != 0) {
-        printf("THREAD() --> Seu texto tem %lu caracteres\n", strlen(work_area) -1);
+        printf("THREAD() --> Seu texto tem %u caracteres\n", strlen(work_area) -1);
         work_area[0] = '\0';
         pthread_mutex_unlock(&work_mutex);
         sleep(1);

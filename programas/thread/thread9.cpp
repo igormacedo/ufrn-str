@@ -128,7 +128,7 @@ int main() {
 void *thread_function(void *arg) {
     
     for(int i=0; i<10; i++) {
-        printf("THREAD() --> A thread %c está rodando. i = %d\n",    (char *) arg, i);
+        printf("THREAD() --> A thread %s está rodando. i = %d\n",    (char *) arg, i);
         for (int j = 0; j < 2; j ++)
             for (int k = 0; k < 1387634340; k ++);
     }

@@ -15,7 +15,7 @@
 // Função auxiliar da thread
 void* funcaoHelper(void* idThread) {
   sleep(3);
-  printf("Finalizar a thread: %d\n", idThread);
+  printf("Finalizar a thread: %d\n", (int)idThread);
   //Finalizar com o código de retorno igual ao idThread
   pthread_exit((void *) idThread);
 }  
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
          printf("Erro ao executar thread_join: %d\n", statusRetorno);
          exit(-1);
       }
-      printf("Join finalizado para a thread: %d com o codigo: %d\n", i, statusFinalizacao);
+      printf("Join finalizado para a thread: %d com o codigo: %d\n", i, (int)statusFinalizacao);
    }
    printf("Finalizando o metodo main\n");
    pthread_exit(NULL);

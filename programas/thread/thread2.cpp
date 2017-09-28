@@ -30,7 +30,7 @@ char message[] = "Alô, Mundo cruel!";
 
 int main() {
     int res;
-    ;
+    pthread_t a_thread;
     void *thread_result;
 	
     // criação de thread: (endereco_da_thread, atributos_da_thread, endereco_da_função, argumentos_da_função)
