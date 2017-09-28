@@ -73,6 +73,3 @@ void *thread_function(void *arg) {
     sleep(3);
     printf("THREAD() --> Vai terminar thread\n");  
 }
-
-
-

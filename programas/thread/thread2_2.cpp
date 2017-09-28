@@ -26,36 +26,55 @@
 
 void *thread_function(void *arg);
 
-char message[] = "Alô, Mundo cruel!";
+//char message[] = "Alô, Mundo cruel!";
 
 int main() {
     int res;
-    pthread_t a_thread;
+    
+	pthread_t a_thread;
+	pthread_t b_thread;
+
     void *thread_result;
     // criação de thread: (endereco_da_thread, atributos_da_thread, endereco_da_função, argumentos_da_função)
-    res = pthread_create(&a_thread, NULL, thread_function, (void *)message);
+	int number;
+	number = 1;
+    res = pthread_create(&a_thread, NULL, thread_function, (void *)number);
     if (res != 0) {
         perror("A Craição da Thread falhou");
         exit(EXIT_FAILURE);
     }
+    
+	number = 2;
+	res = pthread_create(&b_thread, NULL, thread_function, (void *)number);
+    if (res != 0) {
+        perror("A Craição da Thread falhou");
+        exit(EXIT_FAILURE);
+    }
+
+
     printf("MAIN()--> Esperando pelo término da thread...\n");
   
     res = pthread_join(a_thread, &thread_result);
     if (res != 0) {
-        perror("O thread_join falhou");
+        perror("O thread_join a falhou");
+        exit(EXIT_FAILURE);
+    }
+    
+	res = pthread_join(b_thread, &thread_result);
+    if (res != 0) {
+        perror("O thread_join b falhou");
         exit(EXIT_FAILURE);
     }
   
-    printf("MAIN()--> O thread_join retornou:   %s\n", (char *)thread_result);
-    printf("MAIN()--> Message agora é: %s\n\n", message);
     exit(EXIT_SUCCESS);
 }
 
 void *thread_function(void *arg) {
-    printf("THREAD--> thread_function está rodando. O argumento foi %s\n", (char *)arg);
-    printf("THREAD--> Agora vou dormir por 3 segundos\n");
-    sleep(3);
-    printf("THREAD--> Acordei e agora vou terminar\n");
-    strcpy(message, "Estou indo embora! (escrito pela thread)");
+	int number = (int) arg;
+	int sleeptime = (number == 1 ? 3 : 5);
+    printf("THREAD--> thread_function está rodando. O argumento foi %d\n", number);
+    printf("THREAD--> Agora vou dormir por %d segundos\n", sleeptime);
+    sleep(sleeptime);
+	printf("THREAD--> Acordei e agora vou terminar\n");
     pthread_exit((void *) "Obrigado pelo seu tempo de CPU");
 }
