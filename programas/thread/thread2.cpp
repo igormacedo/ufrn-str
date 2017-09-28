@@ -31,6 +31,7 @@ char message[] = "Alô, Mundo cruel!";
 int main() {
     int res;
     pthread_t a_thread;
+    pthread_t b_thread;
     void *thread_result;
 	
     // criação de thread: (endereco_da_thread, atributos_da_thread, endereco_da_função, argumentos_da_função)
@@ -41,12 +42,12 @@ int main() {
     }
     printf("MAIN()--> Esperando pelo término da thread...\n");
   
-    /*res = pthread_join(a_thread, &thread_result);
+    res = pthread_join(a_thread, &thread_result);
     if (res != 0) {
         perror("O thread_join falhou");
         exit(EXIT_FAILURE);
     }
-  */
+  
     printf("MAIN()--> O thread_join retornou:   %s\n", (char *)thread_result);
     printf("MAIN()--> Message agora é: %s\n\n", message);
     exit(EXIT_SUCCESS);
