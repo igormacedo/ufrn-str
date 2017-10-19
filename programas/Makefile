@@ -3,7 +3,8 @@ SUBDIRS = alocacao \
 		  processos \
 		  sinais \
 		  tempo \
-		  thread
+		  thread \
+          concurrent
 
 all: $(addprefix make_,$(SUBDIRS))
 
