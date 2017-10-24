@@ -9,6 +9,7 @@ SOURCES = threads.cpp \
 	thread6.cpp \
 	thread7.cpp \
 	thread8.cpp \
-	thread9.cpp
+	thread9.cpp \
+	train_thread.cpp
 
 include ../rules.mk

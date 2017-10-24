@@ -60,11 +60,11 @@ int main() {
     // Juntando thread mai() com a_thread
     
     printf("\nMAIN() --> Esperando a thread terminar...\n");
-    res = pthread_join(a_thread, &thread_result);
-    if (res != 0) {
+    //res = pthread_join(a_thread, &thread_result);
+    /*if (res != 0) {
         perror("Junção da Thread falhou");
         exit(EXIT_FAILURE);
-    }
+    }*/
     printf("MAIN() --> Thread foi juntada com sucesso\n");
     pthread_mutex_destroy(&work_mutex);  // destruição do multex
     exit(EXIT_SUCCESS);
