@@ -19,6 +19,7 @@
 #include <semaphore.h>
 #include <string.h>
 
+
 void *thread_function(void *arg);
 pthread_mutex_t work_mutex; /* proteção para: work_area e time_to_exit */
 
@@ -32,12 +33,12 @@ int main() {
     void *thread_result;
     res = pthread_mutex_init(&work_mutex, NULL);
     if (res != 0) {
-        perror("Inicia��o do Mutex falhou");
+        perror("Iniciacao do Mutex falhou");
         exit(EXIT_FAILURE);
     }
     res = pthread_create(&a_thread, NULL, thread_function, NULL);
     if (res != 0) {
-        perror("Cria��o da Thread falhou");
+        perror("Criacao da Thread falhou");
         exit(EXIT_FAILURE);
     }
     pthread_mutex_lock(&work_mutex);
