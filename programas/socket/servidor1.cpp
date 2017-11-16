@@ -28,7 +28,7 @@ int main( )
     server_sockfd = socket(AF_UNIX, SOCK_STREAM, 0);  // cria um novo socket
     
     server_address.sun_family = AF_UNIX;
-    strcpy(server_address.sun_path, "server_socket");
+    strcpy(server_address.sun_path, "/tmp/server_socket");
     server_len = sizeof(server_address);
     bind(server_sockfd, (struct sockaddr *) &server_address, server_len);
     
@@ -39,7 +39,7 @@ int main( )
         printf("Servidor esperando ...\n");
         client_sockfd = accept(server_sockfd, (struct sockaddr *) &client_address, (socklen_t *) &client_len);
         
-        recv(client_sockfd, &ch, 1,0);
+        //recv(client_sockfd, &ch, 1,0);
         // read(client_sockfd, &ch, 1);
         ch++;
         //send(client_sockfd, &ch, 1,0);

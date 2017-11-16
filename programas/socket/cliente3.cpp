@@ -26,7 +26,7 @@ int main( )
     
     address.sin_family = AF_INET;
     
-    address.sin_addr.s_addr = inet_addr("");
+    address.sin_addr.s_addr = inet_addr("192.168.0.168");
     
     //address.sin_addr.s_addr = inet_addr("10.13.98.140");
     
